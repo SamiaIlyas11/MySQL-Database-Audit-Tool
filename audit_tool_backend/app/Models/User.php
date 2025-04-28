@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,9 +17,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -41,4 +41,45 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Check if the user is an auditor.
+     *
+     * @return bool
+     */
+    public function isAuditor()
+    {
+        return $this->role === 'auditor';
+    }
+
+    /**
+     * Check if the user is a viewer.
+     *
+     * @return bool
+     */
+    public function isViewer()
+    {
+        return $this->role === 'viewer';
+    }
+
+    /**
+     * Find user by username for Passport authentication.
+     *
+     * @param  string  $username
+     * @return \App\Models\User|null
+     */
+    public function findForPassport($username)
+    {
+        return $this->where('username', $username)->first();
+    }
 }

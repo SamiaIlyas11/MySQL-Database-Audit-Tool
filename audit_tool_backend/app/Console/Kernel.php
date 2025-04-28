@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Schedule the 'process:slowqueries' command to run every 5 minutes
+        $schedule->command('process:slowqueries')->everyFiveMinutes();
     }
 
     /**
@@ -28,5 +29,17 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+    }
+
+    /**
+     * Register the application's route middleware.
+     *
+     * @return void
+     */
+    protected function routeMiddleware()
+    {
+        $this->middlewareGroups = [
+            'role' => \App\Http\Middleware\RoleMiddleware::class,
+        ];
     }
 }
