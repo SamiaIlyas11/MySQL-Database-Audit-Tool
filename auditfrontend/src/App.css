@@ -1,0 +1,135 @@
+.App {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #61dafb;
+  padding-bottom: 0.5rem;
+}
+
+/* Section title styles */
+.section-title {
+  margin-bottom: 2rem;
+  color: #61dafb;
+  font-size: 1.5rem;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* New styles for the logs display */
+h1 {
+  margin-bottom: 2rem;
+  color: #61dafb;
+}
+
+.logs-container {
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  gap: 1rem;
+}
+
+.log-card {
+  background-color: #3a3f4b;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.log-card:hover {
+  transform: translate(5px, -5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #4a4f5c;
+  padding-bottom: 0.5rem;
+}
+
+.log-username {
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.log-time {
+  font-size: 0.9rem;
+  color: #b8c2cc;
+}
+
+.log-details {
+  margin-top: 0.5rem;
+}
+
+.log-host {
+  color: #dcedc8;
+}
+
+.loading {
+  color: #61dafb;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.no-data {
+  color: #b8c2cc;
+  font-style: italic;
+  margin: 2rem 0;
+}
