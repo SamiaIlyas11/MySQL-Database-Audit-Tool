@@ -1,0 +1,26 @@
+1. Record a Failed Login Attempt
+curl -X POST http://127.0.0.1:8000/api/failed-login -d "username=wrongemail@example.com" -H "Content-Type: application/x-www-form-urlencoded"
+
+Expected Response:
+{"message":"Failed login recorded."}
+
+View Failed Logins in Browser:
+http://127.0.0.1:8000/failed-logins-page
+
+2. Test for Slow SQL Query
+Example Query to Simulate a Slow Operation:
+SELECT SLEEP(5);
+
+Execute Laravel Command to Process Slow Queries:
+php artisan process:slowqueries
+
+3. Generate Token for Role-Based Access Control (RBAC)
+Login to Generate Token:
+curl -X POST http://127.0.0.1:8000/api/login -d "username=admin_user" -d "password=adminpass"
+curl -X POST http://127.0.0.1:8000/api/login -d "username=auditor_user" -d "password=auditorpass"
+
+4. Access a Protected Route Using the Token
+curl -X GET http://127.0.0.1:8000/api/protected -H "Authorization: Bearer YOUR_TOKEN_HERE"
+Replace your-issued-token with the actual token received from the login response.
+
+
