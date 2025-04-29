@@ -47,9 +47,6 @@ Route::middleware('auth:sanctum')->get('/logs', function () {
    return response()->json(DB::select("SELECT * FROM audit_logs ORDER BY event_time DESC"));
 });
 
-Route::middleware('auth:sanctum')->get('/protected', function () {
-   return response()->json(['message' => 'This is a protected route']);
-});
 
 // Route accessible only to 'admin' users
 Route::middleware(['auth:sanctum', 'role:admin'])->get('/admin', function () {
@@ -64,4 +61,12 @@ Route::middleware(['auth:sanctum', 'role:auditor'])->get('/auditor', function ()
 // Route accessible only to 'viewer' users
 Route::middleware(['auth:sanctum', 'role:viewer'])->get('/viewer', function () {
    return response()->json(['message' => 'Welcome, viewer!']);
+});
+
+Route::middleware('auth:sanctum')->get('/protected', function () {
+   if (auth()->user()->isAdmin()) {
+       return response()->json(['message' => 'Welcome Admin']);
+   } else {
+       return response()->json(['message' => 'Access denied'], 403);
+   }
 });
