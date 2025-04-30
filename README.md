@@ -1,4 +1,4 @@
-DATABASE AUDIT TOOL
+MYSQL DATABASE AUDIT TOOL
 Report
 
 21K-4947 Samia Ilyas
@@ -6,7 +6,7 @@ Report
 21K-3342 Aarib Azfar
 
 
-Introduction:
+Introduction
 This codebase represents a Laravel-based security audit tool with authentication, role-based access control (RBAC), and comprehensive security monitoring capabilities. The application is designed to track and monitor database activities, suspicious queries, and authentication attempts.
 
 Role Based Access Control (RBAC):

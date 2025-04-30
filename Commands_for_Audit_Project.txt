@@ -20,7 +20,7 @@ curl -X POST http://127.0.0.1:8000/api/login -d "username=admin_user" -d "passwo
 curl -X POST http://127.0.0.1:8000/api/login -d "username=auditor_user" -d "password=auditorpass"
 
 4. Access a Protected Route Using the Token
-curl -X GET http://127.0.0.1:8000/api/protected -H "Authorization: Bearer YOUR_TOKEN_HERE"
+curl -X GET http://127.0.0.1:8000/api/protected -H "Authorization: Bearer YOUR_ISSUED_TOKEN"
 Replace your-issued-token with the actual token received from the login response.
 
 

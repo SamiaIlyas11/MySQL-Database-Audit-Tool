@@ -28,7 +28,7 @@ class ProcessSlowQueries extends Command
      */
     public function handle()
     {
-        $logFilePath = 'C:/xampp/mysql/data/mysql-slow.log'; // Adjust the path to your log file
+        $logFilePath = 'C:/xampp/mysql/data/mysql-slow.log'; 
 
         if (file_exists($logFilePath)) {
             $logContents = file_get_contents($logFilePath);
